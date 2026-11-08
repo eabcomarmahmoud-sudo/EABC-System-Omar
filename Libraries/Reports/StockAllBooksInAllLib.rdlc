@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="LibrariesConnectionString">
+      <rd:DataSourceID>3db5fdbe-867c-4c37-8ff3-14666c71b6fb</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=192.168.1.100\MSSQLSERVER2;Initial Catalog=Libraries;User ID=sa</ConnectString>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>29.7cm</InteractiveHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>21cm</InteractiveWidth>
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>2.5cm</RightMargin>
+  <LeftMargin>2.5cm</LeftMargin>
+  <PageHeader>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <Height>0.75cm</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <BottomMargin>2.5cm</BottomMargin>
+  <rd:ReportID>64a11164-641c-49bf-9cf5-c90745bc4417</rd:ReportID>
+  <PageWidth>21cm</PageWidth>
+  <DataSets>
+    <DataSet Name="DataSet1_SP_RPT_BooksStockInAllLib">
+      <Fields>
+        <Field Name="Book_ID">
+          <DataField>Book_ID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Book">
+          <DataField>Book</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Library">
+          <DataField>Library</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Net">
+          <DataField>Net</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BookNo">
+          <DataField>BookNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BookCode">
+          <DataField>BookCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SellingPrice">
+          <DataField>SellingPrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>LibrariesConnectionString</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>dbo.SP_RPT_BooksStockInAllLib</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DataSet1</rd:DataSetName>
+        <rd:TableName>SP_RPT_BooksStockInAllLib</rd:TableName>
+        <rd:TableAdapterName>SP_RPT_BooksStockInAllLibTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Width>33.25cm</Width>
+  <Body>
+    <ColumnSpacing>1cm</ColumnSpacing>
+    <ReportItems>
+      <Matrix Name="matrix1">
+        <MatrixColumns>
+          <MatrixColumn>
+            <Width>2.02645cm</Width>
+          </MatrixColumn>
+        </MatrixColumns>
+        <DataSetName>DataSet1_SP_RPT_BooksStockInAllLib</DataSetName>
+        <RowGroupings>
+          <RowGrouping>
+            <Width>6.77645cm</Width>
+            <DynamicRows>
+              <Grouping Name="matrix1_RowGroup2">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Book.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="textbox2">
+                  <rd:DefaultName>textbox2</rd:DefaultName>
+                  <Style>
+                    <BorderStyle>
+                      <Default>Inset</Default>
+                    </BorderStyle>
+                    <FontFamily>Times New Roman</FontFamily>
+                    <FontWeight>700</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                    <Direction>RTL</Direction>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!Book.Value</Value>
+                </Textbox>
+              </ReportItems>
+            </DynamicRows>
+          </RowGrouping>
+          <RowGrouping>
+            <Width>5cm</Width>
+            <DynamicRows>
+              <Grouping Name="matrix1_RowGroup3">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!BookNo.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="BookNo">
+                  <rd:DefaultName>BookNo</rd:DefaultName>
+                  <Style>
+                    <BorderStyle>
+                      <Default>Inset</Default>
+                    </BorderStyle>
+                    <FontFamily>Times New Roman</FontFamily>
+                    <FontWeight>700</FontWeight>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!BookNo.Value</Value>
+                </Textbox>
+              </ReportItems>
+            </DynamicRows>
+          </RowGrouping>
+          <RowGrouping>
+            <Width>5.5cm</Width>
+            <DynamicRows>
+              <Grouping Name="matrix1_RowGroup4">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Book_ID.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="BookCode">
+                  <rd:DefaultName>BookCode</rd:DefaultName>
+                  <Style>
+                    <BorderStyle>
+                      <Default>Inset</Default>
+                    </BorderStyle>
+                    <FontFamily>Times New Roman</FontFamily>
+                    <FontWeight>700</FontWeight>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!BookCode.Value</Value>
+                </Textbox>
+              </ReportItems>
+            </DynamicRows>
+          </RowGrouping>
+          <RowGrouping>
+            <Width>3cm</Width>
+            <DynamicRows>
+              <Grouping Name="matrix1_RowGroup5">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!SellingPrice.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="textbox4">
+                  <rd:DefaultName>textbox4</rd:DefaultName>
+                  <Style>
+                    <BorderStyle>
+                      <Default>Inset</Default>
+                    </BorderStyle>
+                    <FontFamily>Times New Roman</FontFamily>
+                    <FontWeight>700</FontWeight>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!SellingPrice.Value</Value>
+                </Textbox>
+              </ReportItems>
+            </DynamicRows>
+          </RowGrouping>
+        </RowGroupings>
+        <LayoutDirection>RTL</LayoutDirection>
+        <Top>0.25cm</Top>
+        <ColumnGroupings>
+          <ColumnGrouping>
+            <Height>0.66667cm</Height>
+            <DynamicColumns>
+              <Grouping Name="matrix1_Library">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Library.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="Library">
+                  <rd:DefaultName>Library</rd:DefaultName>
+                  <Style>
+                    <BackgroundColor>Gainsboro</BackgroundColor>
+                    <BorderColor>
+                      <Bottom>Black</Bottom>
+                    </BorderColor>
+                    <BorderStyle>
+                      <Default>Inset</Default>
+                      <Bottom>Inset</Bottom>
+                    </BorderStyle>
+                    <BorderWidth>
+                      <Bottom>1pt</Bottom>
+                    </BorderWidth>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>Times New Roman</FontFamily>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>700</FontWeight>
+                    <TextAlign>Center</TextAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value>=Fields!Library.Value</Value>
+                </Textbox>
+              </ReportItems>
+            </DynamicColumns>
+          </ColumnGrouping>
+          <ColumnGrouping>
+            <Height>0.66667cm</Height>
+            <DynamicColumns>
+              <Grouping Name="matrix1_ColumnGroup2">
+                <GroupExpressions>
+                  <GroupExpression>المكتبة</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <ReportItems>
+                <Textbox Name="textbox3">
+                  <rd:DefaultName>textbox3</rd:DefaultName>
+                  <Style>
+                    <BackgroundColor>Gainsboro</BackgroundColor>
+                    <BorderStyle>
+                      <Default>Inset</Default>
+                    </BorderStyle>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                  <CanGrow>true</CanGrow>
+                  <Value />
+                </Textbox>
+              </ReportItems>
+            </DynamicColumns>
+          </ColumnGrouping>
+        </ColumnGroupings>
+        <Width>22.30291cm</Width>
+        <Corner>
+          <ReportItems>
+            <Textbox Name="textbox1">
+              <rd:DefaultName>textbox1</rd:DefaultName>
+              <Style>
+                <BackgroundColor>Gainsboro</BackgroundColor>
+                <BorderStyle>
+                  <Default>Inset</Default>
+                </BorderStyle>
+                <FontStyle>Italic</FontStyle>
+                <FontFamily>Times New Roman</FontFamily>
+                <FontSize>14pt</FontSize>
+                <FontWeight>700</FontWeight>
+                <TextAlign>Center</TextAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+                <Direction>RTL</Direction>
+              </Style>
+              <CanGrow>true</CanGrow>
+              <Value>المكتبة
+
+
+----------------------------------------------
+الكتاب</Value>
+            </Textbox>
+          </ReportItems>
+        </Corner>
+        <Style>
+          <BorderStyle>
+            <Default>Inset</Default>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontWeight>700</FontWeight>
+        </Style>
+        <MatrixRows>
+          <MatrixRow>
+            <Height>0.66667cm</Height>
+            <MatrixCells>
+              <MatrixCell>
+                <ReportItems>
+                  <Textbox Name="Net">
+                    <rd:DefaultName>Net</rd:DefaultName>
+                    <Style>
+                      <BorderStyle>
+                        <Default>Inset</Default>
+                      </BorderStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>700</FontWeight>
+                      <TextAlign>Center</TextAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                    <CanGrow>true</CanGrow>
+                    <Value>=Sum(Fields!Net.Value)</Value>
+                  </Textbox>
+                </ReportItems>
+              </MatrixCell>
+            </MatrixCells>
+          </MatrixRow>
+        </MatrixRows>
+        <Height>2.00001cm</Height>
+        <Left>0.5cm</Left>
+      </Matrix>
+    </ReportItems>
+    <Height>2.5cm</Height>
+  </Body>
+  <Language>en-US</Language>
+  <PageFooter>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <Height>0.75cm</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageFooter>
+  <TopMargin>2.5cm</TopMargin>
+  <PageHeight>29.7cm</PageHeight>
+</Report>
